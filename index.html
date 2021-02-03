@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="./css/all.css">
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./css/owl.theme.default.min.css">
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="./css/aos.css">
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/edit-form.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;1,300&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="#" class="text-gray">Travel Review</a>
+            </div>
+            <div class='toggle-collapse'>
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link" onclick="back_home()">
+                        <a href='#'>Home</a>
+                    </li>
+                    <li class="nav-link" onclick="window.location.href='#cate_type'">
+                        <a >
+                            <div>Category</div>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href='#'>
+                            <div>Contact Us</div>
+                        </a>
+                    </li>
+                    <li class="nav-link" id='login-btn' onclick="showLoginModal()">
+                        <a href='#'>
+                            <div>Log In</div>
+                        </a>
+                    </li>
+                    <li class="nav-link" id='account-btn' onclick="showAccountModal()">
+                        <a href='#'>
+                            <div>Account</div>
+                        </a>
+                    </li>
+                    <li class="nav-link" id="admin-panel-btn" onclick="openAdminPanel()">
+                        <a href='#'>
+                            <div>Admin Panel</div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- <div id="user-info" style="margin-top: 15px;">
+                    <div id="login-btn" onclick="showLoginModal()">Log In</div>
+                    <div id="logout-btn" onclick="showLogoutModal()">Log Out</div> -->
+            </div>
+        </div>
+        </div>
+        </div>
+    </nav>
+
+
+    <div id="main-page">
+        <!-- ADMIN PANEL -->
+        <div class="modal-bg" id="admin-panel-display" style="font-family: var(--Abel);">
+            <div id="admin-panel" style="border: black 4px solid;">
+                <div class="close-modal-btn" onclick="closeAdminPanel()" style="display: block;">X</div>
+                <div style="text-align: center; font-size: 30px; margin-bottom: 30px;">
+                    ADMIN PANEL</div>
+                <div>
+                    <div class="manage-btn" id="manage-post-btn"
+                        style="text-align: center; font-size: 20px; margin-bottom: 5px;" onclick="displayPostTable()">
+                        Manage Posts</div>
+                    <br>
+                    <div class="manage-btn" id="manage-users-btn"
+                        style="text-align: center; font-size: 20px; margin-bottom: 5px;" onclick="displayUserTable()">
+                        Manage Users</div>
+                    <br>
+                    <div id="managed-content-field" style="border: 2px solid black; padding: 5px; display: none;">
+                        <table class="manage-table" id='manage-table-content'>
+                        </table>
+                        <br>
+                        <div class="manage-btn" id="create-post-btn"
+                            style="text-align: center; font-size: 20px; display: none; margin-bottom: 5px;""
+                            onclick="displayCreateForm()">
+                            Create Post</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ADMIN PANEL -->
+        <!-- LOGIN MODAL -->
+        <div class="modal-bg" id="login-modal">
+            <div class="form" id="login-form-display">
+                <div id="register-form" hidden>
+                    <div class="close-modal-btn" onclick="hideLoginModal()">X</div>
+                    <input type="text" placeholder="Enter your username" id="input-register-name" style="margin-left: auto; margin-right: auto;"/>
+                    <input type="text" placeholder="Enter your email address" id="input-register-email" style="margin-left: auto; margin-right: auto;"/>
+                    <input type="password" placeholder="Enter your password" id="input-register-password" style="margin-left: auto; margin-right: auto;"/>
+                    <input type="password" placeholder="Confirm your password" id="input-register-confirm-password" style="margin-left: auto; margin-right: auto;"/>
+                    <br>
+                    <div id="btn_reg" class="form-btn" onclick="registerFunction()">CREATE</div>
+                    <p class="message">Already registered? <a onclick="redirectToLogin()" id="redirect-to-login"
+                            href="#">Sign In</a></p>
+                    <br>
+                    </div>
+                <div id="login-form" style="margin-left: auto; margin-right: auto;">
+                    <div class="close-modal-btn" onclick="hideLoginModal()">X</div>
+                    <input type="text" placeholder="Enter your username" id="input-username" style="margin-left: auto; margin-right: auto;"/>
+                    <input type="password" placeholder="Enter your password" id="input-password" style="margin-left: auto; margin-right: auto;"/>
+                    <br>
+                    <div class="form-btn" onclick="logInFunction()">LOG IN</div>
+                    <p class="message" style="margin-left: auto; margin-right: auto;">Not registered? <a onclick="redirectToRegister()" id="redirect-to-register"
+                            href="#">Create an account</a></p>
+                    <br>
+                    </div>
+            </div>
+        </div>
+        <!-- LOGIN MODAL -->
+        <!-- LOGOUT MODAL -->
+        <div class="logout-modal-bg" id="logout-modal" style="display: none;">
+            <div id='logout-form'>
+                <p>Do you want to log out?</p>
+                <div style="display: inline-block;" class='bw-flashing-btn' onclick="logOutFunction()">Yes</div>
+                <div style="display: inline-block;" class='bw-flashing-btn' onclick="hideLogoutModal()">No</div>
+            </div>
+        </div>
+        <!-- LOGOUT MODAL -->
+        <!-- ACCOUNT MODAL -->
+        <div class="modal-bg" id="account-modal" style="display: none;">
+            <div id="account-panel" style="border: black 4px solid;">
+                <div class="close-modal-btn" onclick="closeAccountModal()" style="display: block;">X</div>
+                <a href="#"><i class="fas fa-portrait" style="font-size: 50px;"></i></a>
+                <div id="active-user" style="color:black; font-family: var(--Abel); margin-top: 5px;
+                font-size: 150%;"></div>
+                <div id="active-user-role" style="color:black; font-family: var(--Abel); margin-top: 5px;"></div>
+                <br>
+                <div id="logout-btn" style="font-family: var(--Abel);" onclick="showLogoutModal()">Log Out</div>
+            </div>
+        </div>
+    </div>
+    <!-- ACCOUNT MODAL -->
+    <!-- CONTENT BOX STARTS HERE        -->
+    <div id='content-box' hidden style="font-family: 'Barlow', sans-serif;">
+
+    </div>
+    </div>
+
+    <!----------------------------- Main Site Section ------------------------------>
+    <main id="main">
+        <section class="site-title">
+            <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+                <h3>Travel Review</h3>
+                <h1>Come with us, see the wonders of our world</h1>
+                <a href="#blog-post"><button class="btn">Explore</button></a>
+            </div>
+        </section>
+        <!-- --------------------- Blog Carousel ----------------- -->
+
+        <section>
+            <div class="blog">
+                <div class="container">
+                    <div class="owl-carousel owl-theme blog-post" id="blog-post">
+                        <!-- Carousel POST POSITION  -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ----------x---------- Blog Carousel --------x-------- -->
+        <!-- ---------------------- Site Content -------------------------->
+
+        <section class="container">
+            <div class="site-content">
+                <div id="filteredPosts" class="posts">
+                    <!-- POST HERE -->
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                <img src="https://rlx.jp/relux/img/hotelpictures/RP25766_1042.jpg?1574826965"
+                                    class="img" alt="blog1">
+                            </div>
+                            <div class="post-info flex-row">
+                                <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                                <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 32, 2021</span>
+                                <span>10 billions Comments</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#">Tắm suối nước nóng tại Hokkaido</a>
+                            <p>Sau sự vội vã và nhộn nhịp xung quanh thị trấn, còn cách nào tốt hơn để thư giãn hơn là
+                                một chuyến đi trong ngày đến một spa và onsen nghỉ dưỡng tự nhiên sang trọng?</p>
+                            <button class="btn post-btn" onclick="displayContentByIndex(4)">Read More &nbsp; <i
+                                    class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+                <!-- CATEGORY SIDEBAR -->
+                <aside class="sidebar">
+                    <div id="cate_type" class="category">
+                        <h2>Category</h2>
+                        <ul id="cate-list" class="category-list">
+                            <!-- INSERT HERE -->
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- -----------x---------- Site Content -------------x------------>
+
+    </main>
+    <!---------------x------------- Main Site Section ---------------x-------------->
+
+    <!-- --------------------------- Footer ---------------------------------------- -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="about-us" data-aos="fade-right" data-aos-delay="200">
+                <h2>About us</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia atque nemo ad modi officiis
+                    iure, autem nulla tenetur repellendus.</p>
+            </div>
+            <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+                <h2>Newsletter</h2>
+                <p>Stay update with our latest</p>
+                <div class="form-element">
+                    <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+            <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+                <h2>Instagram</h2>
+                <div class="flex-row">
+                    <img src="./assets/instagram/thumb-card3.png" alt="insta1">
+                    <img src="./assets/instagram/thumb-card4.png" alt="insta2">
+                    <img src="./assets/instagram/thumb-card5.png" alt="insta3">
+                </div>
+                <div class="flex-row">
+                    <img src="./assets/instagram/thumb-card6.png" alt="insta4">
+                    <img src="./assets/instagram/thumb-card7.png" alt="insta5">
+                    <img src="./assets/instagram/thumb-card8.png" alt="insta6">
+                </div>
+            </div>
+            <div class="follow" data-aos="fade-left" data-aos-delay="200">
+                <h2>Follow us</h2>
+                <p>Let us be Social</p>
+                <div>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="rights flex-row">
+            <h4 class="text-gray">
+                Copyright ©2021 All rights reserved
+            </h4>
+        </div>
+        <div class="move-up">
+            <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+        </div>
+    </footer>
+
+    <!-- -------------x------------- Footer --------------------x------------------- -->
+
+
+    <!-- ___________________________________________________ -->
+    <!-- Jquery Lib file -->
+    <script src="./jsView/Jquery3.4.1.min.js"></script>
+    <!-- Owl-Carousel -->
+    <script src="jsView/owl.carousel.min.js"></script>
+    <!-- ------------ AOS js Library  ------------------------- -->
+    <script src="./jsView/aos.js"></script>
+    <!-- Custom js file -->
+    <script src="content-database.js"></script>
+    <script src="./jsView/main.js"></script>
+    <script src="./jsView/blogCarousel.js"></script>
+    <script src="./jsView/Category&typefilter.js"></script>
+    <script src="user-database.js"></script>
+    <script src="display-content.js"></script>
+    <script src="login.js"></script>
+    <script src="admin-panel.js"></script>
+    <script src="create-content.js"></script>
+    <script src="update-content.js"></script>
+</body>
+
+</html>
