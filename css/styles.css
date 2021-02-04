@@ -87,8 +87,8 @@ p{
 .nav{
     background: white;
     padding: 0 2rem;
-    height: 0rem;
-    min-height: 14vh;
+    height: 4.5rem;
+    /* min-height: 14vh; */
     overflow: hidden;
     transition: height 1s ease-in-out;
 }
@@ -398,8 +398,8 @@ footer.footer .rights h4 a{
     color: var(--white);
 }
 
-footer.footer .move-up{
-    position: absolute;
+/* footer.footer .move-up{
+    position: fixed;
     right: 6%;
     top: 50%;
 }
@@ -411,7 +411,7 @@ footer.footer .move-up span{
 footer.footer .move-up span:hover{
     color: var(--white);
     cursor: pointer;
-}
+} */
 
 /* ---------x------- Footer ----------x---------- */
 /* ___x_______________main content________x____ */
@@ -600,13 +600,29 @@ footer.footer .move-up span:hover{
     color: #000000;
     text-decoration: underline;
   }
-  #content-box {
+  #review-area {
 	  background-color: white;
-	  padding: 10%;
+	  padding: 5%;
 	  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
-	  width: 70%;
-	  margin: auto;
+	  width: 80%;
+      margin: auto;
   }
+  .see-more-option {
+      width: 30%;
+      transition: all .2s ease-in-out;
+      cursor: pointer;
+  }
+  .see-more-option:hover {
+    transform: scale(1.1);
+  }
+/* ------------------BUTTON-------------------- */
+#top-buttom_image {
+    position:fixed;
+    bottom:5px;
+    right:5px;
+    /* clip:inherit; */
+}
+/* ---x--------------BUTTON----------------x--- */
 /* ____________________________________ */
 /*              Viewport less then or equal to 1130px            */
 
@@ -624,7 +640,9 @@ footer.footer .move-up span:hover{
     footer.footer .container{
         grid-template-columns: repeat(2, 1fr);
     }
-
+    .see-more-option {
+        width: 40%;
+    }
 }
 /*      x       Viewport less then or equal to 1130px    x     */
 
@@ -650,7 +668,9 @@ footer.footer .move-up span:hover{
     .nav-link {
         min-width: 80%;
     }
-
+    .see-more-option {
+        width: 80%;
+    }
 }
 
 /*        x      Viewport less then or equal to 750px       x     */
@@ -676,7 +696,7 @@ footer.footer .move-up span:hover{
         text-align: center;
     }
     .nav{
-        min-height: 9vh;
+        min-height: 10vh;
     }
     nav .toggle-collapse{
         width: 80% !important;
@@ -684,6 +704,8 @@ footer.footer .move-up span:hover{
     .nav-link {
         min-width: 80%;
     }
-
+    .see-more-option {
+        width: 80%;
+    }
 }
 
