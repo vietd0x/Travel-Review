@@ -40,6 +40,7 @@ function filterByType(type_name)
     </div>
     <hr>`);
     }
+    location.href = "#ActivitiesList";
 }
 
 let aos_delay = 50;
