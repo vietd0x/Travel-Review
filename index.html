@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <nav class="nav">
+    <nav id= "navList" class="nav">
         <div class="nav-menu flex-row">
             <div class="nav-brand">
                 <a href="#" class="text-gray">Travel Review</a>
@@ -36,10 +36,10 @@
             </div>
             <div>
                 <ul class="nav-items">
-                    <li class="nav-link" onclick="back_home()">
+                    <li class="nav-link" onclick="back_home('reload')">
                         <a href='#'>Home</a>
                     </li>
-                    <li class="nav-link" onclick="back_home(), window.location.href='#cate_type'">
+                    <li class="nav-link" onclick="back_home('Notreload'), window.location.href='#cate_type'">
                         <a>
                             <div>Category</div>
                         </a>

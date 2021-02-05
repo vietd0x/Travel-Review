@@ -47,8 +47,16 @@ $(document).ready(function () {
 
 });
 
-function back_home(){
+function back_home(loadornot){
     document.getElementById('main').hidden = false;
     document.getElementById('content-box').hidden = true;
-    location.reload()
+    if(loadornot == 'reload')
+        location.reload()
+    else{
+        // dont do anthing
+    }
 }
+
+$(".nav-link").click(function(){
+    $("#navList").toggleClass("collapse");
+})

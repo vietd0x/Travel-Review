@@ -93,7 +93,7 @@ function displayContentByIndex(i) {
             indexNotChosen.splice(i, 1);
         }
         {
-            for (k = 0; k < 3; k++) {
+            for (k = 0; k < 2; k++) {
                 let indexChosen = getRandomInt(0, indexNotChosen.length - 1);
                 seeMoreIndex.push(indexNotChosen[indexChosen]);
                 indexNotChosen.splice(indexChosen, 1);
