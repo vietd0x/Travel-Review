@@ -29,8 +29,7 @@ $(document).ready(function () {
         autoplay: true,
         autoplayTimeout: 3000,
         dots: true,
-        nav: true,
-        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
+        nav: false,
         responsive: responsive
     });
 
@@ -50,8 +49,9 @@ $(document).ready(function () {
 function back_home(loadornot){
     document.getElementById('main').hidden = false;
     document.getElementById('content-box').hidden = true;
-    if(loadornot == 'reload')
+    if(loadornot == 'reload'){
         location.reload()
+    }
     else{
         // dont do anthing
     }

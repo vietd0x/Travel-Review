@@ -15,7 +15,7 @@ function displayUpdateForm(i) {
     // ___________________________________________________________
     newActivities = [];
     activityIndexCount = 0;
-    document.getElementById('content-box').innerHTML =
+    document.getElementById('review-area').innerHTML =
         `<div id='create-update-form'>
         <div style="margin: 0px 0px;">
             <h1 style="text-align: center; margin-bottom: 5px;" id="form-function">UPDATE POST</h1>
