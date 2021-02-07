@@ -1,6 +1,6 @@
 function resetPostIndex() {
     for (i = 0; i < post.length; i++) {
-        post[i].index = i + 1;
+        post[i].id = i + 1;
     }
 }
 post = [

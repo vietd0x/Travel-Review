@@ -34,12 +34,12 @@ $(document).ready(function () {
     });
 
 
-    // click to scroll top
-    $('.move-up span').click(function () {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 1000);
-    })
+    // // click to scroll top
+    // $('.move-up span').click(function () {
+    //     $('html, body').animate({
+    //         scrollTop: 0
+    //     }, 1000);
+    // })
 
     // AOS Instance
     AOS.init();
@@ -53,7 +53,7 @@ function back_home(loadornot){
         location.reload()
     }
     else{
-        // dont do anthing
+        // dont do anything
     }
 }
 

@@ -1,27 +1,20 @@
-let typeObj = {};
-let filtered_post = {};
-for (_post of post) {
-    for (type of _post.type) {
-        console.log(type);
-        if (typeObj[type]){
-            typeObj[type] += 1;
-            filtered_post[type].push(post.indexOf(_post));
-        }
-        else{
-            typeObj[type] = 1;
-            filtered_post[type] = [];
-            filtered_post[type].push(post.indexOf(_post));
+function filterByType(type_name) {
+    var filtered_post = {};
+    for (_post of post) {
+        for (type of _post.type) {
+            if (filtered_post[type]) {
+                filtered_post[type].push(post.indexOf(_post));
+            }
+            else {
+                filtered_post[type] = [];
+                filtered_post[type].push(post.indexOf(_post));
+            }
         }
     }
-}
-console.log(filtered_post);
-
-function filterByType(type_name)
-{
+    console.log(filtered_post);
     document.getElementById('filteredPosts').innerHTML = "";
-    for(index of filtered_post[type_name])
-    {
-        document.getElementById('filteredPosts').insertAdjacentHTML('afterbegin',`<div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+    for (index of filtered_post[type_name]) {
+        document.getElementById('filteredPosts').insertAdjacentHTML('afterbegin', `<div class="post-content" data-aos="zoom-in" data-aos-delay="200">
         <div class="post-image">
             <div>
                 <img src=${post[index].activities[0].img} class="img" alt="blog1">
@@ -34,7 +27,7 @@ function filterByType(type_name)
         </div>
         <div class="post-title">
             <a >${post[index].activities[0].name}</a>
-            <p>${post[index].activities[0].des+""}</p>
+            <p>${post[index].activities[0].des + ""}</p>
             <button class="btn post-btn" onclick="displayContentByIndex(${index})" href="#">Read More &nbsp; <i class="fas fa-arrow-right"></i></button>
         </div>
     </div>
@@ -43,8 +36,23 @@ function filterByType(type_name)
     location.href = "#ActivitiesList";
 }
 
-let aos_delay = 50;
-for(let i in typeObj)
-{
-    document.getElementById('cate-list').insertAdjacentHTML('beforeend', `<li class="list-items" onclick="filterByType('${i}')" data-aos="fade-left" data-aos-delay=${aos_delay += 50}><a >${i}</a><span>${typeObj[i]}</span></li>`);
+function UpdateCate() {
+    document.getElementById('cate-list').innerHTML = "";
+    var typeObj = {};
+    
+    for (_post of post) {
+        for (type of _post.type) {
+            if (typeObj[type]) {
+                typeObj[type] += 1;
+            }
+            else {
+                typeObj[type] = 1;
+            }
+        }
+    }
+    let aos_delay = 50;
+    for (let i in typeObj) {
+        document.getElementById('cate-list').insertAdjacentHTML('beforeend', `<li class="list-items" onclick="filterByType('${i}')" data-aos="fade-left" data-aos-delay=${aos_delay += 50}><a >${i}</a><span>${typeObj[i]}</span></li>`);
+    }
 }
+UpdateCate();

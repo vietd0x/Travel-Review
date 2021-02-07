@@ -219,7 +219,9 @@ function createPost() {
         },
     ];
     post.push(newPost);
+    // printBlog();
     console.log(newPost);
+    console.log(post);
     resetPostIndex();
     alert('New post created successfully!');
 }
